@@ -16,12 +16,20 @@ kanaConvert c
   | elem c Hira.hiragana = hiraganaToKatakana c
   | elem c Kata.katakana = katakanaToHiragana c
 
-toHiragana :: JpanString -> [Hiragana]
+toHiragana :: JpanString -> JpanString
 toHiragana = map toHiragana'
   where
     toHiragana' c
       | elem c Kata.katakana = (katakanaToHiragana c)
       | otherwise            = c
+
+toKatakana :: JpanString -> JpanString
+toKatakana = map toKatakana'
+  where
+    toKatakana' c
+      | elem c Hira.hiragana = (hiraganaToKatakana c)
+      | otherwise            = c
+
 
 
 --toKatakana :: JpanString -> [Katakana]
