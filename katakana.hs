@@ -1,154 +1,158 @@
 module Katakana where
 
+import qualified Prelude -- Needed to hide "pi"
+
 import Data.Set
+
+(++) = (Prelude.++)
 
 katakana = ['＝'..'ヿ'] -- as defined in the katakana unicode block
 
 -- Katakana (char)
 
 -- Special katakana
-doubleHyphen             = '゠'
-kurikaeshiKatakana       = 'ヽ'
-kurikaeshiDakuonKatakana = 'ヾ'
-kotoKatakana             = 'ヿ'
-nakaguroKatakana         = '・'
-chouon                   = 'ー'
+doubleHyphen     = '゠'
+kurikaeshi       = 'ヽ'
+kurikaeshiDakuon = 'ヾ'
+koto             = 'ヿ'
+nakaguro         = '・'
+chouon           = 'ー'
 
 -- All seion katakana
-aKatakana      = 'ア'
-iKatakana      = 'イ'
-uKatakana      = 'ウ'
-eKatakana      = 'エ'
-oKatakana      = 'オ'
-kaKatakana     = 'カ'
-kiKatakana     = 'キ'
-kuKatakana     = 'ク'
-keKatakana     = 'ケ'
-koKatakana     = 'コ'
-saKatakana     = 'サ'
-shiKatakana    = 'シ'
-suKatakana     = 'ス'
-seKatakana     = 'セ'
-soKatakana     = 'ソ'
-taKatakana     = 'タ'
-chiKatakana    = 'チ'
-tsuKatakana    = 'ツ'
-teKatakana     = 'テ'
-toKatakana     = 'ト'
-naKatakana     = 'ナ'
-niKatakana     = 'ニ'
-nuKatakana     = 'ヌ'
-neKatakana     = 'ネ'
-noKatakana     = 'ノ'
-haKatakana     = 'ハ'
-hiKatakana     = 'ヒ'
-fuKatakana     = 'フ'
-heKatakana     = 'ヘ'
-hoKatakana     = 'ホ'
-maKatakana     = 'マ'
-miKatakana     = 'ミ'
-muKatakana     = 'ム'
-meKatakana     = 'メ'
-moKatakana     = 'モ'
-yaKatakana     = 'ヤ'
-yuKatakana     = 'ユ'
-yoKatakana     = 'ヨ'
-raKatakana     = 'ラ'
-riKatakana     = 'リ'
-ruKatakana     = 'ル'
-reKatakana     = 'レ'
-roKatakana     = 'ロ'
-waKatakana     = 'ワ'
-wiKatakana     = 'ヰ'
-weKatakana     = 'ヱ'
-woKatakana     = 'ヲ'
-nKatakana      = 'ン'
+a   = 'ア'
+i   = 'イ'
+u   = 'ウ'
+e   = 'エ'
+o   = 'オ'
+ka  = 'カ'
+ki  = 'キ'
+ku  = 'ク'
+ke  = 'ケ'
+ko  = 'コ'
+sa  = 'サ'
+shi = 'シ'
+su  = 'ス'
+se  = 'セ'
+so  = 'ソ'
+ta  = 'タ'
+chi = 'チ'
+tsu = 'ツ'
+te  = 'テ'
+to  = 'ト'
+na  = 'ナ'
+ni  = 'ニ'
+nu  = 'ヌ'
+ne  = 'ネ'
+no  = 'ノ'
+ha  = 'ハ'
+hi  = 'ヒ'
+fu  = 'フ'
+he  = 'ヘ'
+ho  = 'ホ'
+ma  = 'マ'
+mi  = 'ミ'
+mu  = 'ム'
+me  = 'メ'
+mo  = 'モ'
+ya  = 'ヤ'
+yu  = 'ユ'
+yo  = 'ヨ'
+ra  = 'ラ'
+ri  = 'リ'
+ru  = 'ル'
+re  = 'レ'
+ro  = 'ロ'
+wa  = 'ワ'
+wi  = 'ヰ'
+we  = 'ヱ'
+wo  = 'ヲ'
+n   = 'ン'
 -- All dakuon katakana
-gaKatakana  = 'ガ'
-giKatakana  = 'ギ'
-guKatakana  = 'グ'
-geKatakana  = 'ゲ'
-goKatakana  = 'ゴ'
-zaKatakana  = 'ザ'
-jiKatakana  = 'ジ'
-zuKatakana  = 'ズ'
-zeKatakana  = 'ゼ'
-zoKatakana  = 'ゾ'
-daKatakana  = 'ダ'
-djiKatakana = 'ヂ'
-dzuKatakana = 'ヅ'
-deKatakana  = 'デ'
-doKatakana  = 'ド'
-baKatakana  = 'バ'
-biKatakana  = 'ビ'
-buKatakana  = 'ブ'
-beKatakana  = 'ベ'
-boKatakana  = 'ボ'
--- vaKatakana  = 'ヷ'
--- viKatakana  = 'ヸ'
-vuKatakana  = 'ヴ'
--- veKatakana  = 'ヹ'
--- voKatakana  = 'ヺ'
+ga  = 'ガ'
+gi  = 'ギ'
+gu  = 'グ'
+ge  = 'ゲ'
+go  = 'ゴ'
+za  = 'ザ'
+ji  = 'ジ'
+zu  = 'ズ'
+ze  = 'ゼ'
+zo  = 'ゾ'
+da  = 'ダ'
+dji = 'ヂ'
+dzu = 'ヅ'
+de  = 'デ'
+doKana  = 'ド'
+ba  = 'バ'
+bi  = 'ビ'
+bu  = 'ブ'
+be  = 'ベ'
+bo  = 'ボ'
+-- va  = 'ヷ'
+-- vi  = 'ヸ'
+vu  = 'ヴ'
+-- ve  = 'ヹ'
+-- vo  = 'ヺ'
 -- All bidakuon katakana
--- ngaKatakana = 'カ゚'
--- ngiKatakana = 'キ゚'
--- nguKatakana = 'ク゚'
--- ngeKatakana = 'ケ゚'
--- ngoKatakana = 'コ゚'
-paKatakana = 'パ'
-piKatakana = 'ピ'
-puKatakana = 'プ'
-peKatakana = 'ペ'
-poKatakana = 'ポ'
+-- nga = 'カ゚'
+-- ngi = 'キ゚'
+-- ngu = 'ク゚'
+-- nge = 'ケ゚'
+-- ngo = 'コ゚'
+pa = 'パ'
+pi = 'ピ'
+pu = 'プ'
+pe = 'ペ'
+po = 'ポ'
 -- All small katakana
-a'Katakana     = 'ァ'
-i'Katakana     = 'ィ'
-u'Katakana     = 'ゥ'
-e'Katakana     = 'ェ'
-o'Katakana     = 'ォ'
-ka'Katakana    = 'ヵ'
-ke'Katakana    = 'ヶ'
-sokuonKatakana = 'ッ'
-ya'Katakana    = 'ャ'
-yu'Katakana    = 'ュ'
-yo'Katakana    = 'ョ'
-wa'Katakana    = 'ヮ'
+a'     = 'ァ'
+i'     = 'ィ'
+u'     = 'ゥ'
+e'     = 'ェ'
+o'     = 'ォ'
+ka'    = 'ヵ'
+ke'    = 'ヶ'
+sokuon = 'ッ'
+ya'    = 'ャ'
+yu'    = 'ュ'
+yo'    = 'ョ'
+wa'    = 'ヮ'
 
--- Katakana rows
+--  rows
 
 -- All seion rows
-aRowSeionKatakana  = aKatakana  : iKatakana   : uKatakana   : eKatakana  : oKatakana  : []
-kaRowSeionKatakana = kaKatakana : kiKatakana  : kuKatakana  : keKatakana : koKatakana : []
-saRowSeionKatakana = saKatakana : shiKatakana : suKatakana  : seKatakana : soKatakana : []
-taRowSeionKatakana = taKatakana : chiKatakana : tsuKatakana : teKatakana : toKatakana : []
-naRowSeionKatakana = naKatakana : niKatakana  : nuKatakana  : neKatakana : noKatakana : []
-haRowSeionKatakana = haKatakana : hiKatakana  : fuKatakana  : heKatakana : hoKatakana : []
-maRowSeionKatakana = maKatakana : miKatakana  : muKatakana  : meKatakana : moKatakana : []
-yaRowSeionKatakana = yaKatakana : yuKatakana  : yoKatakana                            : []
-raRowSeionKatakana = raKatakana : riKatakana  : ruKatakana  : reKatakana : roKatakana : []
-waRowSeionKatakana = waKatakana : wiKatakana  : weKatakana  : woKatakana              : []
+aRowSeion  = a  : i   : u   : e  : o  : []
+kaRowSeion = ka : ki  : ku  : ke : ko : []
+saRowSeion = sa : shi : su  : se : so : []
+taRowSeion = ta : chi : tsu : te : to : []
+naRowSeion = na : ni  : nu  : ne : no : []
+haRowSeion = ha : hi  : fu  : he : ho : []
+maRowSeion = ma : mi  : mu  : me : mo : []
+yaRowSeion = ya  : yu  : yo            : []
+raRowSeion = ra : ri  : ru  : re : ro : []
+waRowSeion = wa : wi        : we  : wo: []
 -- All dakuon rows
-vaRowKatakana = vuKatakana : []
---vaRowKatakana = vaKatakana : viKatakana  : vuKatakana  : veKatakana : voKatakana : []
-gaRowKatakana = gaKatakana : giKatakana  : guKatakana  : geKatakana : goKatakana : []
-zaRowKatakana = zaKatakana : jiKatakana  : zuKatakana  : zeKatakana : zoKatakana : []
-daRowKatakana = daKatakana : djiKatakana : dzuKatakana : deKatakana : doKatakana : []
-baRowKatakana = baKatakana : biKatakana  : buKatakana  : beKatakana : boKatakana : []
+vaRow = vu : []
+--vaRow = va : vi  : vu  : ve : vo : []
+gaRow = ga : gi  : gu  : ge : go : []
+zaRow = za : ji  : zu  : ze : zo : []
+daRow = da : dji : dzu : de : doKana : []
+baRow = ba : bi  : bu  : be : bo : []
 -- All bidakuon rows
-paRowKatakana = paKatakana : piKatakana : puKatakana : peKatakana : poKatakana : []
+paRow = pa : pi : pu : pe : po : []
 
--- Katakana columns
+--  columns
 
-aColumnSeionKatakana = aKatakana : kaKatakana : saKatakana  : taKatakana  : naKatakana : haKatakana : maKatakana : yaKatakana : raKatakana : waKatakana : []
-iColumnSeionKatakana = iKatakana : kiKatakana : shiKatakana : chiKatakana : niKatakana : hiKatakana : miKatakana              : riKatakana : wiKatakana : []
-uColumnSeionKatakana = uKatakana : kuKatakana : suKatakana  : tsuKatakana : nuKatakana : fuKatakana : muKatakana : yuKatakana : ruKatakana              : []
-eColumnSeionKatakana = eKatakana : keKatakana : seKatakana  : teKatakana  : neKatakana : heKatakana : meKatakana              : reKatakana : weKatakana : []
-oColumnSeionKatakana = oKatakana : koKatakana : soKatakana  : toKatakana  : noKatakana : hoKatakana : moKatakana : yoKatakana : roKatakana : woKatakana : []
+aColumnSeion = a : ka : sa  : ta  : na : ha : ma : ya : ra : wa : []
+iColumnSeion = i : ki : shi : chi : ni : hi : mi      : ri : wi : []
+uColumnSeion = u : ku : su  : tsu : nu : fu : mu : yu : ru      : []
+eColumnSeion = e : ke : se  : te  : ne : he : me      : re : we : []
+oColumnSeion = o : ko : so  : to  : no : ho : mo : yo : ro : wo : []
 
 -- Vocalization groups
 
-seionKatakana    = aColumnSeionKatakana ++ iColumnSeionKatakana ++ uColumnSeionKatakana ++ eColumnSeionKatakana ++ oColumnSeionKatakana
-dakuonKatakana   = gaRowKatakana ++ zaRowKatakana ++ daRowKatakana ++ baRowKatakana ++ vaRowKatakana
-bidakuonKatakana = paRowKatakana
---hiseionKatakana  = katakana \\ seionKatakana -- In the strictest sense
-smallKatakana    = a'Katakana : i'Katakana : u'Katakana : e'Katakana : o'Katakana : sokuonKatakana : ya'Katakana : yu'Katakana : yo'Katakana : wa'Katakana : []
+seion    = aColumnSeion ++ iColumnSeion ++ uColumnSeion ++ eColumnSeion ++ oColumnSeion
+dakuon   = gaRow ++ zaRow ++ daRow ++ baRow ++ vaRow
+bidakuon = paRow
+--hiseion  = katakana \\ seion -- In the strictest sense
+small    = a' : i' : u' : e' : o' : ka' : ke' : sokuon : ya' : yu' : yo' : wa' : []
