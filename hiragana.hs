@@ -133,26 +133,26 @@ taRowSeion = ta : chi : tsu : te : to : []
 naRowSeion = na : ni  : nu  : ne : no : []
 haRowSeion = ha : hi  : fu  : he : ho : []
 maRowSeion = ma : mi  : mu  : me : mo : []
-yaRowSeion = ya       : yu       : yo : []
+yaRowSeion = ya :       yu  :      yo : []
 raRowSeion = ra : ri  : ru  : re : ro : []
-waRowSeion = wa : wi        : we : wo : []
+waRowSeion = wa : wi  :       we : wo : []
 -- All dakuon rows
 vaRow = vu : [] -- TODO: Replace with below
 --vaRow = va : vi  : vu  : ve : vo : []
-gaRow = ga : gi  : gu  : ge : go : []
-zaRow = za : ji  : zu  : ze : zo : []
+gaRow = ga : gi  : gu  : ge : go     : []
+zaRow = za : ji  : zu  : ze : zo     : []
 daRow = da : dji : dzu : de : doKana : []
-baRow = ba : bi  : bu  : be : bo : []
+baRow = ba : bi  : bu  : be : bo     : []
 -- All bidakuon rows
 paRow = pa : pi : pu : pe : po : []
 --ngaRow = nga : ngi : ngu : nge : ngo : []
 
---  columns
+-- Hiragana columns
 
 aColumnSeion = a : ka : sa  : ta  : na : ha : ma : ya : ra : wa : []
-iColumnSeion = i : ki : shi : chi : ni : hi : mi      : ri : wi : []
-uColumnSeion = u : ku : su  : tsu : nu : fu : mu : yu : ru      : []
-eColumnSeion = e : ke : se  : te  : ne : he : me      : re : we : []
+iColumnSeion = i : ki : shi : chi : ni : hi : mi :      ri : wi : []
+uColumnSeion = u : ku : su  : tsu : nu : fu : mu : yu : ru :      []
+eColumnSeion = e : ke : se  : te  : ne : he : me :      re : we : []
 oColumnSeion = o : ko : so  : to  : no : ho : mo : yo : ro : wo : []
 
 -- Vocalization groups
@@ -162,3 +162,54 @@ dakuon   = gaRow ++ zaRow ++ daRow ++ baRow ++ vaRow
 bidakuon = paRow -- ++ ngaRow
 --hiseion  = hiragana \\ seion -- In the strictest sense
 small    = a' : i' : u' : e' : o' : ka' : ke' : sokuon : ya' : yu' : yo' : wa' : []
+
+-- Groups regardless of vocalization
+aAll   = a   :                a'     : []
+iAll   = i   :                i'     : []
+uAll   = u   : vu     :       u'     : []
+eAll   = e   :                e'     : []
+oAll   = o   :                o'     : []
+kaAll  = ka  : ga     :       ka'    : [] -- TODO include nga
+kiAll  = ki  : gi     :                [] -- TODO include ngi
+kuAll  = ku  : gu     :                [] -- TODO include ngu
+keAll  = ke  : ge     :       ke'    : [] -- TODO include nge
+koAll  = ko  : go     :                [] -- TODO include ngo
+saAll  = sa  : za     :                []
+shiAll = shi : ji     :                []
+suAll  = su  : zu     :                []
+seAll  = se  : ze     :                []
+soAll  = so  : zo     :                []
+taAll  = ta  : da     :                []
+chiAll = chi : dji    :                []
+tsuAll = tsu : dzu    :       sokuon : []
+teAll  = te  : de     :                []
+toAll  = to  : doKana :                []
+haAll  = ha  : ba     : pa  :          []
+hiAll  = hi  : bi     : pi  :          []
+fuAll  = fu  : bu     : pu  :          []
+heAll  = he  : be     : pe  :          []
+hoAll  = ho  : bo     : po  :          []
+yaAll  = ya  :                ya'    : []
+yuAll  = yu  :                yu'    : []
+yoAll  = yo  :                yo'    : []
+waAll  = wa  :                wa'    : [] -- TODO include va
+wiAll  = wi  :                         [] -- TODO include vi
+weAll  = we  :                         [] -- TODO include ve
+woAll  = wo  :                         [] -- TODO include vo
+
+aRow  = aAll  ++ iAll   ++ uAll   ++ eAll  ++ oAll
+kaRow = kaAll ++ kiAll  ++ kuAll  ++ keAll ++ koAll
+saRow = saAll ++ shiAll ++ suAll  ++ seAll ++ soAll
+taRow = taAll ++ chiAll ++ tsuAll ++ teAll ++ toAll
+naRow = na    :  ni     :  nu     :  ne    : no     : []
+haRow = haAll ++ hiAll  ++ fuAll  ++ heAll ++ hoAll
+maRow = ma    :  mi     :  mu     :  me    : mo     : []
+yaRow = yaAll ++           yuAll  ++          yoAll
+raRow = ra    :  ri     :  ru     :  re    : ro     : []
+waRow = waAll ++ wiAll  ++           weAll ++ woAll
+
+aColumn = aAll ++ kaAll ++ saAll  ++ taAll  ++ [na] ++ haAll ++ [ma] ++ yaAll ++ [ra] ++ waAll
+iColumn = iAll ++ kiAll ++ shiAll ++ chiAll ++ [ni] ++ hiAll ++ [mi] ++          [ri] ++ wiAll
+uColumn = uAll ++ kuAll ++ suAll  ++ tsuAll ++ [nu] ++ fuAll ++ [mu] ++ yuAll ++ [ru]
+eColumn = eAll ++ keAll ++ seAll  ++ teAll  ++ [ne] ++ heAll ++ [me] ++          [re] ++ weAll
+oColumn = oAll ++ koAll ++ soAll  ++ toAll  ++ [no] ++ hoAll ++ [mo] ++ yoAll ++ [ro] ++ woAll
