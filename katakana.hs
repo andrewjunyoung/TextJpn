@@ -6,7 +6,8 @@ import Data.Set
 
 (++) = (Prelude.++)
 
-katakana = ['＝'..'ヿ'] -- as defined in the katakana unicode block
+katakanaAll = ['゠'..'ヿ'] -- as defined in the katakana unicode block, including special characters
+katakana    = ['ァ'..'ヶ']
 
 -- Katakana (char)
 
