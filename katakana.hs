@@ -1,3 +1,5 @@
+module Katakana where
+
 import Data.Set
 
 katakana = ['＝'..'ヿ'] -- as defined in the katakana unicode block
