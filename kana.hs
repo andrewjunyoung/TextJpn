@@ -1,3 +1,5 @@
+module Kana where
+
 import qualified Hiragana as Hira
 import qualified Katakana as Kata
 
@@ -8,10 +10,10 @@ type Katakana = Char
 type Kanji = Char
 
 type JpanChar = Char -- Kana | Kanji
-type JpanText = [JpanChar]
+type JpanString = [JpanChar]
 
 type LatnChar = Char
-type LatnText = [LatnChar]
+type LatnString = [LatnChar]
 
 kana = Hira.hiragana ++ Kata.katakana
 
