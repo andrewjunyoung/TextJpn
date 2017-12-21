@@ -5,8 +5,12 @@ katakana = ['＝'..'ヿ'] -- as defined in the katakana unicode block
 -- Katakana (char)
 
 -- Special katakana
-doubleHyphen = '゠'
-kurikaeshiDakuonKatakana = 'ゞ'
+doubleHyphen             = '゠'
+kurikaeshiKatakana       = 'ヽ'
+kurikaeshiDakuonKatakana = 'ヾ'
+kotoKatakana             = 'ヿ'
+nakaguroKatakana         = '・'
+chouon                   = 'ー'
 
 -- All seion katakana
 aKatakana      = 'ア'
@@ -57,7 +61,6 @@ wiKatakana     = 'ヰ'
 weKatakana     = 'ヱ'
 woKatakana     = 'ヲ'
 nKatakana      = 'ン'
-chouonKatakana = 'ー'
 -- All dakuon katakana
 gaKatakana  = 'ガ'
 giKatakana  = 'ギ'
