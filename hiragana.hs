@@ -5,7 +5,8 @@ import Data.Set
 
 (++) = (Prelude.++)
 
-hiragana = ['ぁ'..'ゟ'] -- as defined in the hiragana unicode block
+hiraganaAll = ['ぁ'..'ゟ'] -- as defined in the hiragana unicode block, including special characters
+hiragana    = ['ぁ'..'ゖ']
 
 -- Hiragana (char)
 
