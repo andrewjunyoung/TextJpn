@@ -79,7 +79,6 @@ wiHiragana     = 'ゐ'
 weHiragana     = 'ゑ'
 woHiragana     = 'を'
 nHiragana      = 'ん'
-chouonHiragana = 'ー'
 -- All dakuon hiragana
 gaHiragana  = 'が'
 giHiragana  = 'ぎ'
