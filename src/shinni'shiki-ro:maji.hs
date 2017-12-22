@@ -1,15 +1,17 @@
 module Shinni'shikiRomaji where
 
-import qualified Kana
+import Data.Maybe
+
+import Kana
 import qualified Hiragana as Hira
 import qualified Katakana as Kata
 
-romanize :: JapnString -> LatnString
+--romanize :: JapnString -> LatnString
 
-japanize :: LatnString -> JapnString
+--japanize :: LatnString -> JapnString
 
 romanizeKana :: Kana -> LatnString
-romanizeKana = liftM2 (++) initial final
+romanizeKana c = initial c ++ final c
   where
     initial :: Kana -> LatnString
     initial c
@@ -21,10 +23,10 @@ romanizeKana = liftM2 (++) initial final
       | elem c uColumn = "u" ++ modifier c
       | elem c eColumn = "e" ++ modifier c
       | elem c oColumn = "o" ++ modifier c
-      | c == 'ん'           = "'"
+      | c == 'ん'      = "'"
       | otherwise = ""
     modifier :: Kana -> LatnString
-    modifier = fromMaybe "" $ modifier'
+    modifier = (fromMaybe "") . modifier'
       where
         modifier' :: Kana -> (Maybe LatnString)
         modifier' c
