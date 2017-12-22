@@ -17,14 +17,7 @@ romanizeKana c = initial c ++ final c
     initial c
       | otherwise = ""
     final :: Kana -> LatnString
-    final c
-      | elem c aColumn = "a" ++ modifier c
-      | elem c iColumn = "i" ++ modifier c
-      | elem c uColumn = "u" ++ modifier c
-      | elem c eColumn = "e" ++ modifier c
-      | elem c oColumn = "o" ++ modifier c
-      | c == 'ん'      = "'"
-      | otherwise = ""
+    final c = fromMaybe "" (lookUp c columnMap) ++ modifier c
     modifier :: Kana -> LatnString
     modifier = (fromMaybe "") . modifier'
       where
@@ -32,3 +25,14 @@ romanizeKana c = initial c ++ final c
         modifier' c
           | elem c small = Just " ́"
           | otherwise         = Nothing
+
+lookUp :: (Eq a) => a -> [([a],b)] -> Maybe b
+lookUp a (x:xs) = if elem a (fst x) then Just (snd x) else lookUp a xs
+lookUp _ [] = Nothing
+
+columnMap = [(aColumn,"a"),
+             (iColumn,"i"),
+             (uColumn,"u"),
+             (eColumn,"e"),
+             (oColumn,"o")
+            ]
